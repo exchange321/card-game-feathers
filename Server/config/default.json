@@ -1,0 +1,12 @@
+{
+  "host": "localhost",
+  "port": 3030,
+  "mongodb": "mongodb://localhost:27017/cardGameFeathersServer",
+  "public": "../public/",
+  "auth": {
+    "token": {
+      "secret": "wGJYwUsvZnKibf4X6mwzhZvZFKn3hVRX4xh1Bl3v+DIJJWuJkb27R/oMKDzrJkWIHhwgXQmideW/ymGm5E6BbA=="
+    },
+    "local": {}
+  }
+}
