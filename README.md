@@ -5,12 +5,13 @@ An experiment of creating a utility app for a card game I play with my housemate
 * Initializing App
 
 ## Finished
+- [ ] **Initialization**
+    - [x] ~~Server Initialization~~
 
 ## Todos
 * Core:
-    - [ ] Initialization
-        - [ ] Server Initialization
-        - [ ] Web App Initialization
+    - [ ] **Initialization**
+        - [ ] **Web App Initialization**
     - [ ] Web App Development
         - [ ] Landing Page
         - [ ] Login Page
