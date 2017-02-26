@@ -9,15 +9,17 @@ An experiment of creating a utility app for a card game I play with my housemate
     - [x] ~~Server Initialization~~
     - [x] ~~Web App Initialization~~
 - [ ] **Web App Development**
-    - [ ] **Environment Setup**
+    - [x] ~~Environment Setup~~
         - [x] ~~React Router Setup~~
+        - [x] ~~Redux Setup~~
 
 ## Todos
 * Core:
     - [ ] **Web App Development**
-        - [ ] **Environment Setup**
-            - [ ] **Redux Setup**
-        - [ ] Login Page
+        - [ ] **Login Page + SignUp Page**
+            - [ ] **Server Authentication**
+            - [ ] Linking Web Client with Feathers Server
+            - [ ] Auto-Redirect when not Logged in
         - [ ] Lobby Page
         - [ ] Create Room Page
         - [ ] Room Page
