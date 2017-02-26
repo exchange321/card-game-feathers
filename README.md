@@ -5,14 +5,16 @@ An experiment of creating a utility app for a card game I play with my housemate
 * Initializing App
 
 ## Finished
-- [ ] **Initialization**
+- [x] ~~Initialization~~
     - [x] ~~Server Initialization~~
+    - [x] ~~Web App Initialization~~
 
 ## Todos
 * Core:
-    - [ ] **Initialization**
-        - [ ] **Web App Initialization**
-    - [ ] Web App Development
+    - [ ] **Web App Development**
+        - [ ] **Environment Setup**
+            - [ ] **React Router Setup**
+            - [ ] Redux Setup
         - [ ] Landing Page
         - [ ] Login Page
         - [ ] Room List Page
