@@ -1,14 +1,12 @@
 /**
  * Created by Wayuki on 26-Feb-17.
  */
-import React, { PropTypes } from 'react';
+import React from 'react';
 
-import App from './components/App.jsx';
+import Routes from './routes.jsx';
 
 const AppContainer = () => (
-    <App />
+    <Routes />
 );
-
-AppContainer.propTypes = {};
 
 export default AppContainer;

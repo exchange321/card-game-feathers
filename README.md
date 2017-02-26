@@ -15,11 +15,10 @@ An experiment of creating a utility app for a card game I play with my housemate
         - [ ] **Environment Setup**
             - [ ] **React Router Setup**
             - [ ] Redux Setup
-        - [ ] Landing Page
         - [ ] Login Page
-        - [ ] Room List Page
-        - [ ] Create Room Page
         - [ ] Lobby Page
+        - [ ] Create Room Page
+        - [ ] Room Page
         - [ ] Gaming Page
         - [ ] Profile Page
         - [ ] Game Record Page
