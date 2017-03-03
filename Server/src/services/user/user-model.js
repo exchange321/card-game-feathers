@@ -18,9 +18,11 @@ const userSchema = new Schema({
     type: String,
     required: true,
   },
-  playerName: {
-    type: String,
-    required: true,
+  profile: {
+    playerName: {
+      type: String,
+      required: true,
+    },
   },
 
   createdAt: { type: Date, 'default': Date.now },

@@ -12,6 +12,8 @@ import darkBaseTheme from 'material-ui/styles/baseThemes/darkBaseTheme';
 import TextField from 'material-ui/TextField';
 import RaisedButton from 'material-ui/RaisedButton';
 
+import Recaptcha from '../common/Recaptcha.jsx';
+
 import * as signUpActions from '../../actions/signUpActions';
 
 @connect(
@@ -53,6 +55,10 @@ class SignUpPage extends Component {
   handleFormSubmit = (e) => {
     e.preventDefault();
     this.props.actions.handleFormSubmit();
+  };
+
+  handleRecaptchaCallback = (response) => {
+    this.props.actions.handleFormFieldChange('recaptcha', response);
   };
 
   render() {
@@ -112,6 +118,11 @@ class SignUpPage extends Component {
                 onChange={this.handleFormFieldChange}
                 errorText={errorMsg.confirmPassword || ''}
                 fullWidth
+              />
+              <Recaptcha
+                verifyCallback={this.handleRecaptchaCallback}
+                onloadCallback={() => {}}
+                errorText={errorMsg.recaptcha || ''}
               />
               <div className="btn-container text-center mt-3">
                 <RaisedButton

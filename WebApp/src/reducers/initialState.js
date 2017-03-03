@@ -15,6 +15,7 @@ export default {
       password: '',
       confirmPassword: '',
       playerName: '',
+      recaptcha: '',
     },
     processing: {
       processingSubmit: false,

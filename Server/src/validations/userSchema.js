@@ -19,6 +19,13 @@ const confirmPassword = Joi.string().trim().min(6).max(30).valid(Joi.ref('passwo
   },
 });
 const playerName = Joi.string().trim().min(4).max(15).required().label('Player Name');
+const recaptcha = Joi.string().min(1).required().label('Recaptcha').options({
+  language: {
+    string: {
+      min: '!!Are you a robot!? Please verify yourself!',
+    },
+  },
+});
 
 module.exports = {
   options: {
@@ -37,5 +44,6 @@ module.exports = {
     password,
     confirmPassword,
     playerName,
+    recaptcha,
   },
 };

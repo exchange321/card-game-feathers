@@ -1,6 +1,7 @@
 'use strict';
 
 const validation = require('./validation');
+const profile = require('./profile');
 const validateSchema = require('feathers-hooks-validate-joi');
 
 const userSchema = require('../../../validations/userSchema');
@@ -25,7 +26,11 @@ exports.before = {
   create: [
     validateSchema.form(userSchema.signUp, userSchema.options),
     validation(),
-    hooks.remove('confirmPassword'),
+    profile(),
+    hooks.remove([
+      'confirmPassword',
+      'recaptcha',
+    ]),
     auth.hashPassword(),
   ],
   update: [
@@ -33,14 +38,12 @@ exports.before = {
     auth.populateUser(),
     auth.restrictToAuthenticated(),
     auth.restrictToOwner({ ownerField: '_id' }),
-    validation()
   ],
   patch: [
     auth.verifyToken(),
     auth.populateUser(),
     auth.restrictToAuthenticated(),
     auth.restrictToOwner({ ownerField: '_id' }),
-    validation()
   ],
   remove: [
     auth.verifyToken(),
