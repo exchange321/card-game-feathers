@@ -29,7 +29,7 @@ export const handleFormSubmit = () => (
   (dispatch, getState) => {
     dispatch(toggleProcessing('processingSubmit', true));
 
-    const { credential }  = getState().signUpPage;
+    const { credential } = getState().signUpPage;
     dispatch(feathersServices.users.create(credential))
       .then(() => {
         dispatch(setNotification(true, 'success', 'Your account has been created. Please sign in.'));

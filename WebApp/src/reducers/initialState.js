@@ -22,4 +22,14 @@ export default {
     },
     errorMsg: {},
   },
+  LoginPage: {
+    credential: {
+      email: '',
+      password: '',
+    },
+    processing: {
+      processingSubmit: false,
+    },
+    errorMsg: {},
+  },
 };

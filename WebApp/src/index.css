@@ -39,7 +39,7 @@ body {
 
 /* SIGN UP PAGE - START */
 
-.sign-up-container {
+.auth-container {
   background-color: rgb(48, 48, 48);
   @media (--desktop) {
     position: fixed;
@@ -54,7 +54,7 @@ body {
     align-items: center;
     padding: 15px;
   }
-  & .sign-up {
+  & .auth-form {
     @media (--desktop) {
       width: 500px;
       padding: 15px;

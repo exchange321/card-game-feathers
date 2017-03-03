@@ -9,10 +9,12 @@ import { feathersServices, feathersAuthentication } from '../feathers';
 import container from './containerReducer';
 
 import signUpPage from './signUpReducer';
+import loginPage from './loginReducer';
 
 const rootReducer = combineReducers({
   container,
   signUpPage,
+  loginPage,
   auth: feathersAuthentication.reducer,
   users: feathersServices.users.reducer,
   routing: routerReducer,

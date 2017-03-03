@@ -76,19 +76,20 @@ class SignUpPage extends Component {
     } = this.props;
     return (
       <MuiThemeProvider muiTheme={getMuiTheme(darkBaseTheme)}>
-        <div className="sign-up-container">
-          <div className="sign-up">
+        <div className="auth-container">
+          <div className="auth-form">
             <h1 className="text-center">Sign Up</h1>
             <form onSubmit={this.handleFormSubmit}>
               <TextField
                 floatingLabelText="Email Address"
                 name="email"
-                type="text"
+                type="email"
                 disabled={processingSubmit}
                 value={email}
                 onChange={this.handleFormFieldChange}
                 errorText={errorMsg.email || ''}
                 fullWidth
+                required
               />
               <TextField
                 floatingLabelText="Player Name"
@@ -98,6 +99,7 @@ class SignUpPage extends Component {
                 onChange={this.handleFormFieldChange}
                 errorText={errorMsg.playerName || ''}
                 fullWidth
+                required
               />
               <TextField
                 floatingLabelText="Password"
@@ -108,6 +110,7 @@ class SignUpPage extends Component {
                 onChange={this.handleFormFieldChange}
                 errorText={errorMsg.password || ''}
                 fullWidth
+                required
               />
               <TextField
                 floatingLabelText="Confirm Password"
@@ -118,6 +121,7 @@ class SignUpPage extends Component {
                 onChange={this.handleFormFieldChange}
                 errorText={errorMsg.confirmPassword || ''}
                 fullWidth
+                required
               />
               <Recaptcha
                 verifyCallback={this.handleRecaptchaCallback}
