@@ -6,7 +6,7 @@ import config from '../webpack.config.dev';
 
 /* eslint-disable */
 
-const port = 80;
+const port = 8000;
 const app = express();
 const compiler = webpack(config);
 

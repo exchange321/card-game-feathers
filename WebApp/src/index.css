@@ -1,7 +1,57 @@
-@import url('https://fonts.googleapis.com/css?family=Roboto');
+@import 'bootstrap/dist/css/bootstrap.min.css';
 @import 'toastr/build/toastr.min.css';
+@import url('https://fonts.googleapis.com/css?family=Roboto:400,500,700');
+
+@custom-media --mobile screen and (max-width: 767px);
+@custom-media --desktop screen and (min-width: 768px);
 
 body {
-    font-family: 'Roboto', Arial, sans-serif;
+  font-family: 'Roboto', Arial, sans-serif;
+  color: white;
 }
 
+/* 404 PAGE - START */
+
+.not-found {
+  height: 100vh;
+  background-color: rgb(48, 48, 48);
+  display: flex;
+  align-items: center;
+}
+
+/* 404 PAGE - END */
+
+/* SIGN UP PAGE - START */
+
+.sign-up-container {
+  background-color: rgb(48, 48, 48);
+  @media (--desktop) {
+    position: fixed;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+  }
+  @media (--mobile) {
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    padding: 15px;
+  }
+  & .sign-up {
+    @media (--desktop) {
+      width: 500px;
+      padding: 15px;
+      position: absolute;
+      top: 40%;
+      left: 50%;
+      -webkit-transform: translate(-50%, -50%);
+      -moz-transform: translate(-50%, -50%);
+      -ms-transform: translate(-50%, -50%);
+      -o-transform: translate(-50%, -50%);
+      transform: translate(-50%, -50%);
+    }
+  }
+}
+
+/* SIGN UP PAGE - END */

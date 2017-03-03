@@ -4,7 +4,7 @@
 import React, { PropTypes } from 'react';
 
 const LoginPage = () => (
-    <div>This is LoginPage</div>
+  <div>This is LoginPage</div>
 );
 
 LoginPage.propTypes = {};

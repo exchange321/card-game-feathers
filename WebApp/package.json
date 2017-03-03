@@ -4,6 +4,11 @@
   "description": "The web app for the card game utility app",
   "main": "index.js",
   "dependencies": {
+    "bootstrap": "4.0.0-alpha.6",
+    "feathers-client": "^1.9.0",
+    "feathers-reduxify-authentication": "^0.1.1",
+    "feathers-reduxify-services": "^0.3.0",
+    "jquery": "^3.1.1",
     "material-ui": "^0.17.0",
     "react": "^15.4.2",
     "react-addons-css-transition-group": "^15.4.2",
@@ -13,10 +18,15 @@
     "react-router": "^3.0.2",
     "react-router-redux": "^4.0.8",
     "react-tap-event-plugin": "^2.0.1",
+    "reactstrap": "^4.2.0",
     "redux": "^3.6.0",
     "redux-auth-wrapper": "^1.0.0",
+    "redux-promise-middleware": "^4.2.0",
     "redux-thunk": "^2.2.0",
-    "toastr": "^2.1.2"
+    "socket.io-client": "^1.7.3",
+    "tether": "^1.4.0",
+    "toastr": "^2.1.2",
+    "whatwg-fetch": "^2.0.2"
   },
   "devDependencies": {
     "babel-cli": "^6.23.0",
@@ -72,7 +82,7 @@
     "start": "npm run open:src",
     "open:src": "babel-node tools/srcServer.js",
     "lint": "node_modules/.bin/esw .",
-    "lint:watch": "npm run lint -- --watch --fix",
+    "lint:watch": "npm run lint -- --watch",
     "lint:fix": "node_modules/.bin/eslint . --fix",
     "test": "mocha --reporter spec tools/testSetup.js \"src/**/*.test.js\"",
     "test:watch": "npm run test -- --watch",
