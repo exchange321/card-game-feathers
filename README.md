@@ -2,7 +2,8 @@
 An experiment of creating a utility app for a card game I play with my housemates using Feathers.js.
 
 ## Current Status
-* Initializing App
+* Sign up function online
+* Adding Login function
 
 ## Finished
 - [x] ~~Initialization~~
