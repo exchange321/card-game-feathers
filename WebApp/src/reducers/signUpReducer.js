@@ -33,6 +33,13 @@ const signUpReducer = (state = initialState.SignUpPage, action) => {
       };
     }
 
+    case SIGN_UP_ACTION.RESET_FORM: {
+      return {
+        ...state,
+        credential: initialState.SignUpPage.credential,
+      };
+    }
+
     default: {
       return state;
     }

@@ -4,8 +4,3 @@
 export const mapServicePathsToNames = {
   users: 'users',
 };
-
-export const prioritizedListServices = [
-  'auth',
-  'users',
-];

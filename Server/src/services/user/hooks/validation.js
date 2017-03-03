@@ -52,6 +52,7 @@ module.exports = function() {
         }
       }).then((body) => {
         if (body.success) {
+          hook.data.isVerified = true;
           resolve(hook);
         } else {
           reject(new errors.BadRequest({

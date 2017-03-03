@@ -12,9 +12,14 @@ import darkBaseTheme from 'material-ui/styles/baseThemes/darkBaseTheme';
 import TextField from 'material-ui/TextField';
 import RaisedButton from 'material-ui/RaisedButton';
 
+import * as loginActions from '../../actions/loginActions';
+
 @connect(
   ({ loginPage }) => ({
     ...loginPage
+  }),
+  dispatch => ({
+    actions: bindActionCreators(loginActions, dispatch),
   }),
 )
 class LoginPage extends Component {
@@ -26,36 +31,73 @@ class LoginPage extends Component {
     processing: PropTypes.shape({
       processingSubmit: PropTypes.bool.isRequired,
     }).isRequired,
-    errMsg: PropTypes.objectOf(PropTypes.string.isRequired),
+    errorMsg: PropTypes.objectOf(PropTypes.string.isRequired),
+    actions: PropTypes.shape({
+      setErrorMessage: PropTypes.func.isRequired,
+      handleFormFieldChange: PropTypes.func.isRequired,
+      handleFormSubmit: PropTypes.func.isRequired,
+      resetForm: PropTypes.func.isRequired,
+    }).isRequired,
+  };
+
+  componentWillUnmount() {
+    const { setErrorMessage, resetForm } = this.props.actions;
+    setErrorMessage('');
+    resetForm();
+  }
+
+  handleFormFieldChange = (e) => {
+    const { name: key, value } = e.target;
+    this.props.actions.handleFormFieldChange(key, value);
+  };
+
+  handleFormSubmit = (e) => {
+    e.preventDefault();
+    this.props.actions.handleFormSubmit();
   };
 
   render() {
+    const {
+      credential: {
+        email,
+        password,
+      },
+      processing: {
+        processingSubmit,
+      },
+      errorMsg,
+    } = this.props;
     return (
       <MuiThemeProvider muiTheme={getMuiTheme(darkBaseTheme)}>
         <div className="auth-container">
           <div className="auth-form">
             <h1 className="text-center">Login</h1>
-            <form>
+            <form onSubmit={this.handleFormSubmit}>
               <TextField
                 floatingLabelText="Email Address"
                 name="email"
                 type="email"
-                errorText=''
+                value={email}
+                disabled={processingSubmit}
+                onChange={this.handleFormFieldChange}
+                errorText={errorMsg.error || ''}
                 fullWidth
-                required
               />
               <TextField
                 floatingLabelText="Password"
                 name="password"
                 type="password"
-                errorText=''
+                value={password}
+                disabled={processingSubmit}
+                onChange={this.handleFormFieldChange}
+                errorText={errorMsg.error || ''}
                 fullWidth
-                required
               />
               <div className="btn-container text-center mt-3">
                 <RaisedButton
-                  label="Login"
+                  label={processingSubmit ? 'Logging In...' : 'Login'}
                   type="submit"
+                  disabled={processingSubmit}
                   primary
                 />
               </div>

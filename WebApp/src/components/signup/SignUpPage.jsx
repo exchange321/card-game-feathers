@@ -40,11 +40,14 @@ class SignUpPage extends Component {
       setErrorMessage: PropTypes.func.isRequired,
       handleFormFieldChange: PropTypes.func.isRequired,
       handleFormSubmit: PropTypes.func.isRequired,
+      resetForm: PropTypes.func.isRequired,
     }).isRequired,
   };
 
   componentWillUnmount() {
-    this.props.actions.setErrorMessage({});
+    const { setErrorMessage, resetForm } = this.props.actions;
+    setErrorMessage({});
+    resetForm();
   }
 
   handleFormFieldChange = (e) => {

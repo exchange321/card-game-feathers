@@ -45,4 +45,8 @@ export const handleFormSubmit = () => (
   }
 );
 
+export const resetForm = () => ({
+  type: SIGN_UP_ACTION.RESET_FORM,
+});
+
 export default () => {};

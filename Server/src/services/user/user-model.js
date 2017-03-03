@@ -24,6 +24,10 @@ const userSchema = new Schema({
       required: true,
     },
   },
+  isVerified: {
+    type: Boolean,
+    required: true,
+  },
 
   createdAt: { type: Date, 'default': Date.now },
   updatedAt: { type: Date, 'default': Date.now },

@@ -5,6 +5,8 @@ import React from 'react';
 import { Router, Route, Redirect, browserHistory } from 'react-router';
 import { syncHistoryWithStore } from 'react-router-redux';
 
+import { PageForUserOnly, PageForGuestOnly } from './auth';
+
 import AppContainer from './components/AppContainer.jsx';
 import App from './components/App.jsx';
 import LobbyPage from './components/lobby/LobbyPage.jsx';
@@ -19,10 +21,10 @@ const routes = ({ store }) => {
   return (
     <Router history={history}>
       <Route component={AppContainer}>
-        <Route component={App}>
+        <Route component={PageForUserOnly(App)}>
           <Route path="/" component={LobbyPage} />
         </Route>
-        <Route path="login" component={LoginPage} />
+        <Route path="login" component={PageForGuestOnly(LoginPage)} />
         <Route path="sign-up" component={SignUpPage} />
         <Route path="404" component={NotFound} />
         <Redirect from="*" to="404" />

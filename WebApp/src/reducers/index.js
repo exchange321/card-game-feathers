@@ -16,7 +16,6 @@ const rootReducer = combineReducers({
   signUpPage,
   loginPage,
   auth: feathersAuthentication.reducer,
-  users: feathersServices.users.reducer,
   routing: routerReducer,
 });
 

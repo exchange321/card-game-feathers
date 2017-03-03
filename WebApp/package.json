@@ -6,6 +6,7 @@
   "dependencies": {
     "bootstrap": "4.0.0-alpha.6",
     "feathers-client": "^1.9.0",
+    "feathers-reactive": "^0.4.1",
     "feathers-reduxify-authentication": "^0.1.1",
     "feathers-reduxify-services": "^0.3.0",
     "jquery": "^3.1.1",
@@ -24,6 +25,7 @@
     "redux-auth-wrapper": "^1.0.0",
     "redux-promise-middleware": "^4.2.0",
     "redux-thunk": "^2.2.0",
+    "rxjs": "^5.2.0",
     "socket.io-client": "^1.7.3",
     "tether": "^1.4.0",
     "toastr": "^2.1.2",
