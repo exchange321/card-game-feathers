@@ -38,9 +38,6 @@ export const handleFormSubmit = () => (
         dispatch(routerActions.replace('/login'));
       })
       .catch((err) => {
-        console.log(Object.assign({}, err));
-        console.log(err);
-        console.log(err.message);
         dispatch(setNotification(true, 'error', 'It seems like there is something wrong. Please try again.'));
         dispatch(setErrorMessage(err.errors || {}));
         dispatch(toggleProcessing('processingSubmit', false));

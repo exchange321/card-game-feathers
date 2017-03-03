@@ -13,7 +13,6 @@ module.exports = function() {
         playerName: hook.data.playerName,
       };
       delete hook.data['playerName'];
-      console.log(hook.data);
       resolve(hook);
     });
   };
