@@ -21,7 +21,7 @@ const loginReducer = (state = initialState.LoginPage, action) => {
         errorMsg: {
           error: action.errorMsg,
         },
-      }
+      };
     }
     case LOGIN_ACTION.HANDLE_FORM_FIELD_CHANGE: {
       return {

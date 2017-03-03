@@ -4,3 +4,5 @@
 export const mapServicePathsToNames = {
   users: 'users',
 };
+
+export default {};

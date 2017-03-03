@@ -4,7 +4,7 @@
 import { combineReducers } from 'redux';
 import { routerReducer } from 'react-router-redux';
 
-import { feathersServices, feathersAuthentication } from '../feathers';
+import { feathersAuthentication } from '../feathers';
 
 import container from './containerReducer';
 

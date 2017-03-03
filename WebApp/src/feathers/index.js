@@ -4,7 +4,7 @@
 import io from 'socket.io-client';
 
 import feathers from 'feathers-client';
-import reduxifyServices  from 'feathers-reduxify-services';
+import reduxifyServices from 'feathers-reduxify-services';
 import reduxifyAuthentication from 'feathers-reduxify-authentication';
 import rx from 'feathers-reactive';
 import RxJS from 'rxjs';
