@@ -2,8 +2,7 @@
 An experiment of creating a utility app for a card game I play with my housemates using Feathers.js.
 
 ## Current Status
-* Finished App Function (logout and styles)
-* Structuring Lobby Page
+* Constructing Lobby Page
 
 ## Finished
 - [x] ~~Initialization~~
