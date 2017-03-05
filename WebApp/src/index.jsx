@@ -13,11 +13,9 @@ import Routes from './routes.jsx';
 const store = configureStore();
 
 if (localStorage['feathers-jwt']) {
-  store.dispatch(feathersAuthentication.authenticate())
-    .catch((err) => {
-      console.log('authenticate catch', err);
-      return err;
-    });
+  store.dispatch(feathersAuthentication.authenticate()).catch((err) => {
+    return err;
+  });
 }
 
 const Container = () => (
