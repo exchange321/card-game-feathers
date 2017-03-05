@@ -22,10 +22,10 @@ const routes = ({ store }) => {
     <Router history={history}>
       <Route component={AppContainer}>
         <Route component={PageForUserOnly(App)}>
-          <Route path="/" component={LobbyPage} />
+          <Route path="/" component={LobbyPage} title="Lobby" />
         </Route>
         <Route path="login" component={PageForGuestOnly(LoginPage)} />
-        <Route path="sign-up" component={SignUpPage} />
+        <Route path="sign-up" component={PageForGuestOnly(SignUpPage)} />
         <Route path="404" component={NotFound} />
         <Redirect from="*" to="404" />
       </Route>

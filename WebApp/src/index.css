@@ -37,7 +37,7 @@ body {
 
 /* 404 PAGE - END */
 
-/* SIGN UP PAGE - START */
+/* AUTH PAGE - START */
 
 .auth-container {
   background-color: rgb(48, 48, 48);
@@ -70,4 +70,13 @@ body {
   }
 }
 
-/* SIGN UP PAGE - END */
+/* AUTH PAGE - END */
+
+/* APP - START */
+
+.app {
+  min-height: 100vh;
+  background-color: rgb(48, 48, 48);
+}
+
+/* APP - END */

@@ -4,10 +4,11 @@
 export default {
   Container: {
     notification: {
-      hasNotification: false,
-      messageType: 'info',
+      open: false,
       message: '',
     },
+  },
+  App: {
   },
   SignUpPage: {
     credential: {

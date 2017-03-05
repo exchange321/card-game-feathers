@@ -60,6 +60,7 @@
     "express": "^4.14.1",
     "extract-text-webpack-plugin": "^2.0.0",
     "file-loader": "^0.10.1",
+    "image-webpack-loader": "^3.2.0",
     "jsdom": "^9.11.0",
     "mocha": "^3.2.0",
     "nock": "^9.0.7",

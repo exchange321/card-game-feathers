@@ -32,13 +32,13 @@ export const handleFormSubmit = () => (
     const { credential } = getState().signUpPage;
     dispatch(feathersServices.users.create(credential))
       .then(() => {
-        dispatch(setNotification(true, 'success', 'Your account has been created. Please sign in.'));
+        dispatch(setNotification('Your account has been created. Please sign in.'));
         dispatch(setErrorMessage({}));
         dispatch(toggleProcessing('processingSubmit', false));
         dispatch(routerActions.replace('/login'));
       })
       .catch((err) => {
-        dispatch(setNotification(true, 'error', 'It seems like there is something wrong. Please try again.'));
+        dispatch(setNotification('It seems like there is something wrong. Please try again.'));
         dispatch(setErrorMessage(err.errors || {}));
         dispatch(toggleProcessing('processingSubmit', false));
       });

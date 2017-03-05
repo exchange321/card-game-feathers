@@ -1,7 +1,12 @@
 import React, { PropTypes, Component } from 'react'
 import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
-import toastr from 'toastr';
+
+import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider';
+import getMuiTheme from 'material-ui/styles/getMuiTheme';
+import darkThemeBase from 'material-ui/styles/baseThemes/darkBaseTheme';
+
+import Snackbar from 'material-ui/Snackbar';
 
 import * as containerActions from '../actions/containerActions';
 
@@ -16,36 +21,37 @@ import * as containerActions from '../actions/containerActions';
 class AppContainer extends Component {
   static propTypes = {
     notification: PropTypes.shape({
-      hasNotification: PropTypes.bool.isRequired,
-      messageType: PropTypes.string.isRequired,
+      open: PropTypes.bool.isRequired,
       message: PropTypes.string.isRequired,
     }).isRequired,
     actions: PropTypes.shape({
       setNotification: PropTypes.func.isRequired,
+      closeNotification: PropTypes.func.isRequired,
     }).isRequired,
   };
 
-  componentDidUpdate() {
-    if (this.props.notification.hasNotification) {
-      const {
-        notification: {
-          messageType,
-          message,
-        },
-        actions: {
-          setNotification,
-        }
-      } = this.props;
-      toastr[messageType](message);
-      setNotification(false, 'info', '');
-    }
-  }
-
   render() {
+    const {
+      notification: {
+        open,
+        message,
+      },
+      actions: {
+        closeNotification,
+      },
+    } = this.props;
     return (
-      <div>
-        { this.props.children }
-      </div>
+      <MuiThemeProvider muiTheme={getMuiTheme(darkThemeBase)}>
+        <div>
+          { this.props.children }
+          <Snackbar
+            open={open}
+            message={message}
+            autoHideDuration={3000}
+            onRequestClose={closeNotification}
+          />
+        </div>
+      </MuiThemeProvider>
     );
   }
 }

@@ -37,12 +37,12 @@ export const handleFormSubmit = () => (
         ...credential,
       })).then((user) => {
         const { playerName } = user.value.data.profile;
-        dispatch(setNotification(true, 'success', `Welcome back! ${playerName}`));
+        dispatch(setNotification(`Welcome back! ${playerName}`));
         dispatch(routerActions.replace('/'));
         dispatch(setErrorMessage(''));
         dispatch(toggleProcessing('processingSubmit', false));
       }).catch((err) => {
-        dispatch(setNotification(true, 'error', err.message));
+        dispatch(setNotification(err.message));
         dispatch(setErrorMessage('Your email and password do not match...Please try again.'));
         dispatch(toggleProcessing('processingSubmit', false));
       });

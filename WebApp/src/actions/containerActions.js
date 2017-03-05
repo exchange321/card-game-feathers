@@ -3,11 +3,13 @@
  */
 import { CONTAINER_ACTION } from './actionTypes';
 
-export const setNotification = (hasNotification, messageType, message) => ({
+export const setNotification = (message) => ({
   type: CONTAINER_ACTION.SET_NOTIFICATION,
-  hasNotification,
-  messageType,
   message,
+});
+
+export const closeNotification = () => ({
+  type: CONTAINER_ACTION.CLOSE_NOTIFICATION,
 });
 
 export default {};

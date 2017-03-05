@@ -5,10 +5,6 @@ import React, { PropTypes, Component } from 'react';
 import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
 
-import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider';
-import getMuiTheme from 'material-ui/styles/getMuiTheme';
-import darkBaseTheme from 'material-ui/styles/baseThemes/darkBaseTheme';
-
 import TextField from 'material-ui/TextField';
 import RaisedButton from 'material-ui/RaisedButton';
 
@@ -78,71 +74,69 @@ class SignUpPage extends Component {
       errorMsg,
     } = this.props;
     return (
-      <MuiThemeProvider muiTheme={getMuiTheme(darkBaseTheme)}>
-        <div className="auth-container">
-          <div className="auth-form">
-            <h1 className="text-center">Sign Up</h1>
-            <form onSubmit={this.handleFormSubmit}>
-              <TextField
-                floatingLabelText="Email Address"
-                name="email"
-                type="email"
+      <div className="auth-container">
+        <div className="auth-form">
+          <h1 className="text-center">Sign Up</h1>
+          <form onSubmit={this.handleFormSubmit}>
+            <TextField
+              floatingLabelText="Email Address"
+              name="email"
+              type="email"
+              disabled={processingSubmit}
+              value={email}
+              onChange={this.handleFormFieldChange}
+              errorText={errorMsg.email || ''}
+              fullWidth
+              required
+            />
+            <TextField
+              floatingLabelText="Player Name"
+              name="playerName"
+              disabled={processingSubmit}
+              value={playerName}
+              onChange={this.handleFormFieldChange}
+              errorText={errorMsg.playerName || ''}
+              fullWidth
+              required
+            />
+            <TextField
+              floatingLabelText="Password"
+              name="password"
+              type="password"
+              disabled={processingSubmit}
+              value={password}
+              onChange={this.handleFormFieldChange}
+              errorText={errorMsg.password || ''}
+              fullWidth
+              required
+            />
+            <TextField
+              floatingLabelText="Confirm Password"
+              name="confirmPassword"
+              type="password"
+              disabled={processingSubmit}
+              value={confirmPassword}
+              onChange={this.handleFormFieldChange}
+              errorText={errorMsg.confirmPassword || ''}
+              fullWidth
+              required
+            />
+            <Recaptcha
+              verifyCallback={this.handleRecaptchaCallback}
+              onloadCallback={() => {}}
+              errorText={errorMsg.recaptcha || ''}
+            />
+            <div className="btn-container text-center mt-3">
+              <RaisedButton
+                label={processingSubmit ? "Signing Up..." : "Sign Up"}
+                type="submit"
                 disabled={processingSubmit}
-                value={email}
-                onChange={this.handleFormFieldChange}
-                errorText={errorMsg.email || ''}
-                fullWidth
-                required
+                primary
               />
-              <TextField
-                floatingLabelText="Player Name"
-                name="playerName"
-                disabled={processingSubmit}
-                value={playerName}
-                onChange={this.handleFormFieldChange}
-                errorText={errorMsg.playerName || ''}
-                fullWidth
-                required
-              />
-              <TextField
-                floatingLabelText="Password"
-                name="password"
-                type="password"
-                disabled={processingSubmit}
-                value={password}
-                onChange={this.handleFormFieldChange}
-                errorText={errorMsg.password || ''}
-                fullWidth
-                required
-              />
-              <TextField
-                floatingLabelText="Confirm Password"
-                name="confirmPassword"
-                type="password"
-                disabled={processingSubmit}
-                value={confirmPassword}
-                onChange={this.handleFormFieldChange}
-                errorText={errorMsg.confirmPassword || ''}
-                fullWidth
-                required
-              />
-              <Recaptcha
-                verifyCallback={this.handleRecaptchaCallback}
-                onloadCallback={() => {}}
-                errorText={errorMsg.recaptcha || ''}
-              />
-              <div className="btn-container text-center mt-3">
-                <RaisedButton
-                  label={processingSubmit ? "Signing Up..." : "Sign Up"}
-                  type="submit"
-                  disabled={processingSubmit}
-                  primary
-                />
-              </div>
-            </form>
-          </div>
+            </div>
+          </form>
         </div>
-      </MuiThemeProvider>
+      </div>
     );
   }
 }

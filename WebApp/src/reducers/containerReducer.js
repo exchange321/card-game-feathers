@@ -11,9 +11,17 @@ const containerReducer = (state = initialState.Container, action) => {
         ...state,
         notification: {
           ...state.notification,
-          hasNotification: action.hasNotification,
-          messageType: action.messageType,
+          open: true,
           message: action.message,
+        },
+      };
+    }
+    case CONTAINER_ACTION.CLOSE_NOTIFICATION: {
+      return {
+        ...state,
+        notification: {
+          ...state.notification,
+          open: false,
         },
       };
     }

@@ -5,10 +5,6 @@ import React, { PropTypes, Component } from 'react';
 import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
 
-import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider';
-import getMuiTheme from 'material-ui/styles/getMuiTheme';
-import darkBaseTheme from 'material-ui/styles/baseThemes/darkBaseTheme';
-
 import TextField from 'material-ui/TextField';
 import RaisedButton from 'material-ui/RaisedButton';
 
@@ -68,43 +64,41 @@ class LoginPage extends Component {
       errorMsg,
     } = this.props;
     return (
-      <MuiThemeProvider muiTheme={getMuiTheme(darkBaseTheme)}>
-        <div className="auth-container">
-          <div className="auth-form">
-            <h1 className="text-center">Login</h1>
-            <form onSubmit={this.handleFormSubmit}>
-              <TextField
-                floatingLabelText="Email Address"
-                name="email"
-                type="email"
-                value={email}
+      <div className="auth-container">
+        <div className="auth-form">
+          <h1 className="text-center">Login</h1>
+          <form onSubmit={this.handleFormSubmit}>
+            <TextField
+              floatingLabelText="Email Address"
+              name="email"
+              type="email"
+              value={email}
+              disabled={processingSubmit}
+              onChange={this.handleFormFieldChange}
+              errorText={errorMsg.error || ''}
+              fullWidth
+            />
+            <TextField
+              floatingLabelText="Password"
+              name="password"
+              type="password"
+              value={password}
+              disabled={processingSubmit}
+              onChange={this.handleFormFieldChange}
+              errorText={errorMsg.error || ''}
+              fullWidth
+            />
+            <div className="btn-container text-center mt-3">
+              <RaisedButton
+                label={processingSubmit ? 'Logging In...' : 'Login'}
+                type="submit"
                 disabled={processingSubmit}
-                onChange={this.handleFormFieldChange}
-                errorText={errorMsg.error || ''}
-                fullWidth
+                primary
               />
-              <TextField
-                floatingLabelText="Password"
-                name="password"
-                type="password"
-                value={password}
-                disabled={processingSubmit}
-                onChange={this.handleFormFieldChange}
-                errorText={errorMsg.error || ''}
-                fullWidth
-              />
-              <div className="btn-container text-center mt-3">
-                <RaisedButton
-                  label={processingSubmit ? 'Logging In...' : 'Login'}
-                  type="submit"
-                  disabled={processingSubmit}
-                  primary
-                />
-              </div>
-            </form>
-          </div>
+            </div>
+          </form>
         </div>
-      </MuiThemeProvider>
+      </div>
     );
   }
 }

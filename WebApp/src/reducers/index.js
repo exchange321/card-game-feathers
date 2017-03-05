@@ -7,12 +7,14 @@ import { routerReducer } from 'react-router-redux';
 import { feathersAuthentication } from '../feathers';
 
 import container from './containerReducer';
+import app from './appReducer';
 
 import signUpPage from './signUpReducer';
 import loginPage from './loginReducer';
 
 const rootReducer = combineReducers({
   container,
+  app,
   signUpPage,
   loginPage,
   auth: feathersAuthentication.reducer,
